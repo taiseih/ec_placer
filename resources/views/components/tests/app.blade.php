@@ -14,6 +14,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
+        {{-- 名前付きスロット x-slotのnameで指定された名前--}}
+        <header class="font-sans text-red-500">
+            {{ $header }}
+        </header>
+        
+        {{-- 通常のスロット x-tests.appの中身--}}
         <div class="font-sans text-blue-500 antialiased">
             {{ $slot }}
         </div>
