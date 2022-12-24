@@ -5,3 +5,11 @@
 
 コンポーネントテスト１
 </x-tests.app>
+
+<x-tests.card title="変数に" content="指定して属性を指定してる">
+    
+        $slotで表示してる
+   組み合わせて使用することができる
+</x-tests.card>
+
+
