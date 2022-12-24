@@ -11,5 +11,5 @@
         $slotで表示してる
    組み合わせて使用することができる
 </x-tests.card>
-
+<x-tests.card title="プロップス"></x-tests.card>
 
