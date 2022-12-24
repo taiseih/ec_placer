@@ -1,4 +1,5 @@
-<div class="border-2 shadow-sm w-1/4 text-green-600">
+{{-- <div class="border-2 shadow-sm w-1/4 text-green-600"> --}}
+    <div {{ $attributes->merge([ 'class' => 'border-2 shadow-sm w-1/4 text-green-600' ])}}>
 @props([
     'title',
     'content' => "content初期値",
