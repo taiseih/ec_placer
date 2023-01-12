@@ -6,6 +6,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 
 class ProfileController extends Controller
 {
@@ -17,10 +18,23 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        if (! $request->expectsJson()) {
+            if(Route::is('owner.*')){
+           return view('owner.profile.edit', [
+            'user' => $request->user(),]); 
+        }elseif(Route::is('admin.*')){
+            return view('admin.profile.edit', [
+                'user' => $request->user(),]);  
+        }else{
+            return view('user.profile.edit', [
+                'user' => $request->user(),
+            ]);
+        }
     }
+}
+
+
+
 
     /**
      * Update the user's profile information.

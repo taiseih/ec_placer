@@ -49,7 +49,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->as('user.')
                 ->middleware('web')
                 ->group(base_path('routes/web.php'));
-
         });
     }
 
