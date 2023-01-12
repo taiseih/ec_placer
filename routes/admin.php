@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
+use App\Http\Controllers\Admin\OwnersController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 
 
@@ -29,6 +30,8 @@ Route::get('/', function () {
     return view('admin.welcome');
 });
 
+Route::resource('owners', OwnersController::class)->middleware('auth:admin');
+
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('dashboard');
@@ -38,7 +41,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 
 Route::middleware('guest')->group(function () {
